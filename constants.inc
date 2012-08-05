@@ -7,3 +7,5 @@ define('DB_DATABASE', 'webware_db');
 define('JHU_COMPANY_ID', 81);
 
 define('DEST_DIR', "Z:\\JHUExport");
+
+define('ASSET_BASE_PATH', "W:\\Data\\WWAM50\\Assets\\ActiveMedia\\Johns_Hopkins");
