@@ -55,4 +55,8 @@ class DAO
             "join asset_category ac on a.asset_category_id = ac.asset_category_id " .
             "where wca.collection_id = " . $collection['COLLECTION_ID']);
     }
+
+    function getUser($id) {
+        return $this->query("select * from wm_user where wmuser_id = $id");
+    }
 }

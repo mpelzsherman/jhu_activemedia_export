@@ -7,7 +7,7 @@ require_once('Exporter.php');
 if (is_dir(DEST_DIR)) {
     echo "deleting " . DEST_DIR . "...";
     exec('rm -rf ' . DEST_DIR);
-    echo "\ndone!";
+    echo "done!\n";
 }
 mkdir(DEST_DIR);
 
