@@ -41,7 +41,17 @@ class Exporter
             echo "copying $sourcePath to $destPath...";
             copy($sourcePath, $destPath);
             echo "\ndone!\n";
+            $this->extractMetadata($DAO, $file, $destDir);
         }
+    }
+
+    public function extractMetadata($DAO, $file, $destDir) {
+        $data = "KEY\tVALUE_TYPE\tVALUE\n";
+        $metadata = $DAO->getMetadataForFile($file);
+        foreach($metadata as $row) {
+            $data .= $row['name'] . "\t" . $row['type'] . "\t" . $row['value'] . "\n";
+        }
+        file_put_contents($destDir . DIRECTORY_SEPARATOR . '_' . $file['NAME'] . '.tsv', $data);
     }
 
     public function writeCollectionMetadata($DAO, $collection, $collectionDir) {

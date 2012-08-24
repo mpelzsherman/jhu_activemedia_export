@@ -48,7 +48,7 @@ class DAO
     }
 
     function getFilesForCollection($collection) {
-        return $this->query("select f.file_id as FILE_ID, f.file_path as FILE_PATH, f.name as NAME, convert(varchar,convert(date, catalog_date)) as CATALOG_DATE, ac.path as CATEGORY_PATH " .
+        return $this->query("select f.file_id as FILE_ID, f.file_path as FILE_PATH, f.name as NAME, convert(varchar,convert(date, catalog_date)) as CATALOG_DATE, ac.path as CATEGORY_PATH, f.notes as NOTES " .
             "from wm_collection_to_asset wca " .
             "join asset a on wca.asset_id = a.asset_id " .
             "join wm_file f on a.current_file_id = f.file_id " .
@@ -58,5 +58,25 @@ class DAO
 
     function getUser($id) {
         return $this->query("select * from wm_user where wmuser_id = $id");
+    }
+
+    function getMetadataForFile($file) {
+        $rawrows = $this->query("select mdl.name as name, md.string_object as value, " .
+        "mdl.data_type as type from wm_meta_data md " .
+        "join wm_meta_data_label mdl on md.meta_data_label_id = mdl.meta_data_label_id " .
+        "where md.object_id = {$file['FILE_ID']} and md.class_name = 'WMAssetMetaData'");
+        $result = array();
+        foreach ($rawrows as $item) {
+            if ($item['value']) {
+                $item['type'] = ($item['type'] == 3) ? 'date' : 'string';
+                $result[] = $item;
+            }
+        }
+        // add additional items:
+        if ($file['NOTES']) {
+            $result[] = array('name' => 'Notes', 'value' => $file['NOTES'], 'type' => 'string');
+        }
+        $result[] = array('name' => 'Date', 'value' => $file['CATALOG_DATE'], 'type' => 'date');
+        return $result;
     }
 }
