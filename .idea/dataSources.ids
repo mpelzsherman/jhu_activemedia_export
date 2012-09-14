@@ -1,0 +1,1303 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="ActiveMedia DB" product="Microsoft SQL Server" version="10.50.2500" jdbc-version="3.0" driver-name="jTDS Type 4 JDBC Driver for MS SQL Server and Sybase" driver-version="1.2.5" uuid="b71292be-9264-4921-8784-8ca209eaff01">
+    <extra-name-characters>$#@</extra-name-characters>
+    <identifier-quote-string>"</identifier-quote-string>
+    <jdbc-driver>net.sourceforge.jtds.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:jtds:sqlserver://jhsql03.win.ad.jhu.edu/webware_db</jdbc-url>
+    <user-name>webware</user-name>
+    <user-password>dfdddf99dfc8dfdddfcbdfd8df99</user-password>
+    <schema-pattern>*.dbo</schema-pattern>
+    <default-schemas>*.dbo</default-schemas>
+    <libraries>
+      <library>
+        <url>jar://$PROJECT_DIR$/jtds-1.2.5.jar!/</url>
+      </library>
+      <library>
+        <url>file://$PROJECT_DIR$/jtds-license.txt</url>
+      </library>
+    </libraries>
+    <table name="APP_INSTANCES" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="APP_ID" sqlType="varchar" length="60" precision="0" nullable="false" jdbcType="12" />
+      <column name="IS_ACTIVE" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="TIME_STAMP" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__APP_INSTANCES" columns="app_id" />
+      <exported-key name="FK1__WM_MPS_FILE_TYPE_REG" columns="" />
+    </table>
+    <table name="APP_VERSION" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="APP_VERSION_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="APP_NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="EXTERNAL_VERSION" sqlType="varchar" length="24" precision="0" nullable="false" jdbcType="12" />
+      <column name="INTERNAL_VERSION" sqlType="varchar" length="24" precision="0" nullable="true" jdbcType="12" />
+      <column name="CODE_NAME" sqlType="varchar" length="24" precision="0" nullable="true" jdbcType="12" />
+      <column name="BUILD_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <primary-key name="PK__APP_VERSION" columns="app_version_id" />
+    </table>
+    <table name="ASSET" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_CATEGORY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="ASSET_CODE" sqlType="varchar" length="21" precision="0" nullable="false" jdbcType="12" />
+      <column name="ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="ASSET_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="AVAILABILITY_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CREATION_DATE" sqlType="datetime" length="23" precision="3" nullable="false" jdbcType="93" />
+      <column name="EXPIRATION_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="HAS_BEEN_ASSIGNED" sqlType="numeric" length="1" precision="0" nullable="true" jdbcType="2" />
+      <column name="INITIAL_VALUE" sqlType="numeric" length="15" precision="2" nullable="true" jdbcType="2" />
+      <column name="KEY_WORDS" sqlType="varchar" length="2000" precision="0" nullable="true" jdbcType="12" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="2000" precision="0" nullable="true" jdbcType="12" />
+      <column name="RIGHTS_AND_RESTRICTIONS_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="STATUS_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="SUPER_ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="TIME_TO_CREATE" sqlType="numeric" length="15" precision="2" nullable="true" jdbcType="2" />
+      <column name="CURRENT_FILE_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="WEBDAV_ID" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="EXPORT_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <primary-key name="PK__ASSET" columns="asset_id" />
+      <exported-key name="FK3__WM_COMMENT" columns="" />
+      <index name="IDX1__ASSET" unique="false" columns="COMPANY_ID,ASSET_ID" />
+    </table>
+    <table name="ASSET_CATEGORY" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_CATEGORY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CLASS_NAME" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="INPUT_PATH" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="PATH" sqlType="varchar" length="255" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__ASSET_CATEGORY" columns="asset_category_id" />
+    </table>
+    <table name="ASSET_TYPE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__ASSET_TYPE" columns="asset_type_id" />
+    </table>
+    <table name="COLL_CAT_TO_MD_LABEL" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COLLECTION_CAT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="META_DATA_LABEL_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__COLL_CAT_TO_MD_LABEL" columns="collection_cat_id,meta_data_label_id" />
+    </table>
+    <table name="COMPANY" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_PATH" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CUSTOMER_CODE" sqlType="varchar" length="16" precision="0" nullable="true" jdbcType="12" />
+      <column name="IS_ACTIVE" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="48" precision="0" nullable="false" jdbcType="12" />
+      <column name="RESOURCE_PATH" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="PROFTPLOGIN" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="PROFTPPASSWORD" sqlType="varchar" length="16" precision="0" nullable="true" jdbcType="12" />
+      <column name="LICENSE" sqlType="varchar" length="128" precision="0" nullable="true" jdbcType="12" />
+      <column name="EVENT_FTP_LOGIN" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="EVENT_FTP_PASSWORD" sqlType="varchar" length="16" precision="0" nullable="true" jdbcType="12" />
+      <column name="MESSAGE" sqlType="varchar" length="2500" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__COMPANY" columns="company_id" />
+      <exported-key name="FK1__WM_WORK_GROUP" columns="" />
+      <exported-key name="FK1__WM_SAVED_SEARCH" columns="" />
+    </table>
+    <table name="COMPONENT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="BUTTON" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="COMPONENT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="COMPONENT_NAME" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="FRAME_TARGET" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="SORT_ORDER" sqlType="numeric" length="2" precision="0" nullable="true" jdbcType="2" />
+      <column name="TARGET" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="NAVIGATOR_NAME" sqlType="varchar" length="48" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPONENT_CODE" sqlType="varchar" length="16" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__COMPONENT" columns="component_id" />
+    </table>
+    <table name="DEPARTMENT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="DEPARTMENT_CODE" sqlType="varchar" length="32" precision="0" nullable="true" jdbcType="12" />
+      <column name="DEPARTMENT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="HOURLY_RATE" sqlType="numeric" length="15" precision="2" nullable="true" jdbcType="2" />
+      <column name="LOGIC_CODE" sqlType="varchar" length="32" precision="0" nullable="true" jdbcType="12" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__DEPARTMENT" columns="department_id" />
+    </table>
+    <table name="DemoUsers" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMPANY_ADDRESS" sqlType="varchar" length="60" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_CITY" sqlType="varchar" length="40" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_COUNTRY" sqlType="varchar" length="60" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_STATE" sqlType="varchar" length="40" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_TITLE" sqlType="varchar" length="40" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_ZIP" sqlType="varchar" length="12" precision="0" nullable="true" jdbcType="12" />
+      <column name="EMAIL_ADDRESS" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="FAX_NUMBER" sqlType="varchar" length="19" precision="0" nullable="true" jdbcType="12" />
+      <column name="FAX_PREFIX" sqlType="varchar" length="4" precision="0" nullable="true" jdbcType="12" />
+      <column name="FIRST_NAME" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <column name="LAST_NAME" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <column name="LOGIN" sqlType="varchar" length="16" precision="0" nullable="false" jdbcType="12" />
+      <column name="PHONE_NUMBER" sqlType="varchar" length="19" precision="0" nullable="true" jdbcType="12" />
+      <column name="PHONE_PREFIX" sqlType="varchar" length="4" precision="0" nullable="true" jdbcType="12" />
+      <column name="USER_ID_KEY" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="WEB_ADDRESS" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__DemoUsers__3587F3E0" columns="email_address" />
+    </table>
+    <table name="EVENT_CATEGORY" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CLASS_NAME" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="EVENT_CATEGORY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="1000" precision="0" nullable="true" jdbcType="12" />
+      <column name="RELATIVE_PATH" sqlType="varchar" length="255" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__EVENT_CATEGORY" columns="event_category_id" />
+    </table>
+    <table name="FILE_LOCK" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ACTIVE" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="FILE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="FILE_LOCK_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="HIDE_FILE" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="TRANSACTION_LOG_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="EXPIRATION_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="LOCK_OWNER" sqlType="varchar" length="256" precision="0" nullable="true" jdbcType="12" />
+      <column name="WEBDAV_FILE_LOCK_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__FILE_LOCK" columns="file_lock_id" />
+      <index name="IDX1__FILE_LOCK" unique="false" columns="WEBDAV_FILE_LOCK_ID" />
+    </table>
+    <table name="FILE_TYPE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="EXTENSION" sqlType="varchar" length="16" precision="0" nullable="true" jdbcType="12" />
+      <column name="FILE_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="INLINE_VIEW" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="IS_ANNOTATABLE" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="MAC_CREATOR" sqlType="varchar" length="4" precision="0" nullable="true" jdbcType="12" />
+      <column name="MAC_TYPE" sqlType="varchar" length="4" precision="0" nullable="true" jdbcType="12" />
+      <column name="MAGIC" sqlType="varchar" length="16" precision="0" nullable="true" jdbcType="12" />
+      <column name="MIME_TYPE" sqlType="varchar" length="48" precision="0" nullable="true" jdbcType="12" />
+      <column name="NAME" sqlType="varchar" length="48" precision="0" nullable="false" jdbcType="12" />
+      <column name="THUMBNAIL_TYPE" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__FILE_TYPE" columns="file_type_id" />
+      <exported-key name="FK2__WM_MPS_FILE_TYPE_REG" columns="" />
+    </table>
+    <table name="HOT_FOLDER" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="HOT_FOLDER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="INPUT_PATH" sqlType="varchar" length="255" precision="0" nullable="false" jdbcType="12" />
+      <column name="IS_MAC_FILE_SYSTEM" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="LOGFILE_PATH" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="OUTPUT_PATH" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__HOT_FOLDER" columns="hot_folder_id" />
+    </table>
+    <table name="JOB_FUNCTION" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="JOB_FUNCTION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="48" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__JOB_FUNCTION" columns="job_function_id" />
+    </table>
+    <table name="OBJECT_ATTRIBUTE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CACHED_ARRAY_NAME" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="CLASS_STRING" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="EDITOR" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="OBJECT_ATTRIBUTE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="ALLOW_CUSTOMER_EDIT" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__OBJECT_ATTRIBUTE" columns="object_attribute_id" />
+    </table>
+    <table name="PRIVILEGE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ACTION" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="256" precision="0" nullable="true" jdbcType="12" />
+      <column name="PRIVILEGE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="TARGET" sqlType="varchar" length="32" precision="0" nullable="true" jdbcType="12" />
+      <column name="TRANSACTION_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="WO_COMPONENT" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <column name="PRIVILEGE_CODE" sqlType="varchar" length="16" precision="0" nullable="true" jdbcType="12" />
+      <column name="PRIVILEGE_KEY" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__PRIVILEGE" columns="privilege_id" />
+      <exported-key name="FK2__WM_GROUP_TO_PRIVILEGE" columns="" />
+    </table>
+    <table name="RIGHTS_AND_RESTRICTIONS" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COLOR_CODE" sqlType="varchar" length="16" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="LICENSING_RIGHTS" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="NAME" sqlType="varchar" length="40" precision="0" nullable="false" jdbcType="12" />
+      <column name="REGIONAL_RIGHTS" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="RIGHTS_AND_RESTRICTIONS_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="USAGE_GUIDELINES" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__RIGHTS_AND_RESTRICTIONS" columns="rights_and_restrictions_id" />
+    </table>
+    <table name="SESSION_COUNT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="APP_ID" sqlType="varchar" length="60" precision="0" nullable="false" jdbcType="12" />
+      <column name="IS_ACTIVE" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="LICENSEE_ID" sqlType="varchar" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="SESSION_COUNT" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__SESSION_COUNT" columns="app_id,licensee_id" />
+    </table>
+    <table name="SESSION_LOG" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="SESSION_DURATION" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="SESSION_LOG_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="SESSION_START" sqlType="datetime" length="23" precision="3" nullable="false" jdbcType="93" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="USER_AGENT" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="IP_ADDRESS" sqlType="varchar" length="18" precision="0" nullable="true" jdbcType="12" />
+      <column name="EXPIRATION_TIME" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="TOKEN" sqlType="varchar" length="128" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__SESSION_LOG" columns="session_log_id" />
+      <exported-key name="FK3__WM_FILE_PROCESS_REQUEST" columns="" />
+      <index name="IDX1__SESSION_LOG" unique="false" columns="WMUSER_ID" />
+    </table>
+    <table name="STATUS" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CLASS_NAME" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="STATUS_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="TIEBREAKER" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__STATUS" columns="status_id" />
+      <exported-key name="FK2__WM_TASK_TO_STATUS" columns="" />
+    </table>
+    <table name="TRANSACTION_LOG" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="COST" sqlType="numeric" length="15" precision="2" nullable="true" jdbcType="2" />
+      <column name="FILE_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="NOTES" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="SESSION_LOG_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="TARG_OBJ_CLASS_NAME" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="TARG_OBJECT_ID" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="TRANSACTION_DATE" sqlType="datetime" length="23" precision="3" nullable="false" jdbcType="93" />
+      <column name="WMTRANSACTION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="TRANSACTION_LOG_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__TRANSACTION_LOG" columns="transaction_log_id" />
+    </table>
+    <table name="VERSION" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="FILE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="IS_CURRENT" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="ORIGIN_FILE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="TRANSACTION_LOG_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="VERSION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="VERSION_NUMBER" sqlType="numeric" length="3" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__VERSION" columns="version_id" />
+    </table>
+    <table name="WM_ANNOTATION" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="WM_ANNOTATION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="TAG_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="ANN_COLOR" sqlType="varchar" length="20" precision="0" nullable="false" jdbcType="12" />
+      <column name="ANN_HEIGHT" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="ANN_WIDTH" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WORKFLOW_ASSET_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="X_ORIG" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="Y_ORIG" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_ANNOTATION" columns="wm_annotation_id" />
+    </table>
+    <table name="WM_APPR_TYPE_TO_USER" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="APPROVAL_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_APPR_TYPE_TO_USER" columns="approval_type_id,wmuser_id" />
+    </table>
+    <table name="WM_ASSETCAT_TO_HOT_FOLDER" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_CATEGORY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="HOT_FOLDER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_ASSETCAT_TO_HOT_FOLDER" columns="asset_category_id,hot_folder_id" />
+    </table>
+    <table name="WM_ASSETCAT_TO_LABEL" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_CATEGORY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="METADATA_LABEL_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_ASSETCAT_TO_LABEL" columns="asset_category_id,metadata_label_id" />
+    </table>
+    <table name="WM_ASSET_ORDER" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ACCOUNT_CODE" sqlType="varchar" length="15" precision="0" nullable="true" jdbcType="12" />
+      <column name="BUSINESS_PHONE" sqlType="varchar" length="15" precision="0" nullable="false" jdbcType="12" />
+      <column name="COMPLETION_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="ORDER_DELIVERY_ADDR_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="DELIVERY_METHOD_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="DEPARTMENT_NUMBER" sqlType="varchar" length="15" precision="0" nullable="true" jdbcType="12" />
+      <column name="FAX" sqlType="varchar" length="15" precision="0" nullable="true" jdbcType="12" />
+      <column name="IS_COMPLETE" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="NOTES" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="ORDER_ADDRESS_1" sqlType="varchar" length="128" precision="0" nullable="false" jdbcType="12" />
+      <column name="ORDER_ADDRESS_2" sqlType="varchar" length="128" precision="0" nullable="true" jdbcType="12" />
+      <column name="ORDER_CITY" sqlType="varchar" length="128" precision="0" nullable="false" jdbcType="12" />
+      <column name="ORDER_DATE" sqlType="datetime" length="23" precision="3" nullable="false" jdbcType="93" />
+      <column name="ORDER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="ORDER_NUMBER" sqlType="varchar" length="16" precision="0" nullable="false" jdbcType="12" />
+      <column name="ORDER_PRIORITY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="ORDER_STATE" sqlType="varchar" length="128" precision="0" nullable="false" jdbcType="12" />
+      <column name="ORDER_ZIP" sqlType="varchar" length="128" precision="0" nullable="false" jdbcType="12" />
+      <column name="PO_NUMBER" sqlType="varchar" length="128" precision="0" nullable="true" jdbcType="12" />
+      <column name="REPRINT_NAME" sqlType="varchar" length="128" precision="0" nullable="true" jdbcType="12" />
+      <column name="SHIPPING_ADDRESS_1" sqlType="varchar" length="128" precision="0" nullable="true" jdbcType="12" />
+      <column name="SHIPPING_ADDRESS_2" sqlType="varchar" length="128" precision="0" nullable="true" jdbcType="12" />
+      <column name="SHIPPING_CITY" sqlType="varchar" length="128" precision="0" nullable="true" jdbcType="12" />
+      <column name="SHIPPING_STATE" sqlType="varchar" length="128" precision="0" nullable="true" jdbcType="12" />
+      <column name="SHIPPING_ZIP" sqlType="varchar" length="128" precision="0" nullable="true" jdbcType="12" />
+      <column name="TITLE" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <column name="USER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_ASSET_ORDER" columns="order_id" />
+    </table>
+    <table name="WM_ASSET_ORDER_ITEM" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="ASSET_ORDER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="ASSET_ORDER_ITEM_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="MEDIA_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="PAPER_STOCK_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="PROOF_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="PROXY_DICT_STRING" sqlType="varchar" length="1000" precision="0" nullable="true" jdbcType="12" />
+      <column name="QUANTITY" sqlType="numeric" length="4" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_ASSET_ORDER_ITEM" columns="asset_order_item_id" />
+    </table>
+    <table name="WM_ASSET_TO_ASSET" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CHILD_ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="PARENT_ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_ASSET_TO_ASSET" columns="child_asset_id,parent_asset_id" />
+      <index name="IDX1__WM_ASSET_TO_ASSET" unique="false" columns="PARENT_ASSET_ID" />
+      <index name="IDX2__WM_ASSET_TO_ASSET" unique="false" columns="CHILD_ASSET_ID" />
+    </table>
+    <table name="WM_ASSET_TO_EVENT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="EVENT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_ASSET_TO_EVENT" columns="asset_id,event_id" />
+    </table>
+    <table name="WM_ASSET_TO_SUBJECT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="SUBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_ASSET_TO_SUBJECT" columns="asset_id,subject_id" />
+    </table>
+    <table name="WM_ASSET_WEBDAV_IDS" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="NEXT_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_ASSET_WEBDAV_IDS" columns="asset_name" />
+    </table>
+    <table name="WM_CATEGORY" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CATEGORY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="32" precision="0" nullable="true" jdbcType="12" />
+      <column name="PATH" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__WM_CATEGORY" columns="category_id" />
+    </table>
+    <table name="WM_COLLECTION" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COLLECTION_CAT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="COLLECTION_CODE" sqlType="varchar" length="48" precision="0" nullable="false" jdbcType="12" />
+      <column name="COLLECTION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CREATION_DATE" sqlType="datetime" length="23" precision="3" nullable="false" jdbcType="93" />
+      <column name="EXPIRATION_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="IS_ACTIVE" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="IS_PUBLIC" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="2000" precision="0" nullable="true" jdbcType="12" />
+      <column name="PARENT_COLLECTION_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="SHARE_POINT_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="STATUS_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="WM_USER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="EXPORT_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <primary-key name="PK__WM_COLLECTION" columns="collection_id" />
+      <exported-key name="FK1__WM_WG_TO_COLL" columns="" />
+    </table>
+    <table name="WM_COLLECTION_CAT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CLASS_NAME" sqlType="varchar" length="48" precision="0" nullable="false" jdbcType="12" />
+      <column name="COLLECTION_CAT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="48" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__WM_COLLECTION_CAT" columns="collection_cat_id" />
+    </table>
+    <table name="WM_COLLECTION_TO_ASSET" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="COLLECTION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="SORT_ORDER" sqlType="numeric" length="10" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__WM_COLLECTION_TO_ASSET" columns="collection_id,asset_id" />
+    </table>
+    <table name="WM_COLL_TO_SUBJ" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COLLECTION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="SUBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_COLL_TO_SUBJ" columns="subject_id,collection_id" />
+    </table>
+    <table name="WM_COMMENT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMMENT_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="DATE_SUBMITTED" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="TEXT" sqlType="varchar" length="4000" precision="0" nullable="true" jdbcType="12" />
+      <column name="WM_ANNOTATION_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WORKFLOW_ID" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="WORKFLOW_ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__WM_COMMENT" columns="comment_id" />
+      <foreign-key name="FK3__WM_COMMENT" columns="ASSET_ID" ref-table="ASSET" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="ASSET_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <foreign-key name="FK2__WM_COMMENT" columns="WORKFLOW_ID" ref-table="WM_WORKFLOW" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="WORKFLOW_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <foreign-key name="FK1__WM_COMMENT" columns="WORKFLOW_ASSET_ID" ref-table="WM_WORKFLOW_ASSET" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="WORKFLOW_ASSET_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <index name="IDX1__WM_COMMENT" unique="false" columns="WORKFLOW_ASSET_ID" />
+      <index name="IDX2__WM_COMMENT" unique="false" columns="WORKFLOW_ID" />
+      <index name="IDX3__WM_COMMENT" unique="false" columns="ASSET_ID" />
+    </table>
+    <table name="WM_COMPANY_TO_COMPONENT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="COMPONENT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+    </table>
+    <table name="WM_DATA_CHUNK" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CHUNK_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="TARG_OBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CLASS_NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="CHUNK_VALUE" sqlType="varchar" length="2000" precision="0" nullable="true" jdbcType="12" />
+      <column name="SORT_ORDER" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_DATA_CHUNK" columns="chunk_id" />
+    </table>
+    <table name="WM_DELIVERY_ADDRESS" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="DELIVERY_ADDRESS_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__WM_DELIVERY_ADDRESS" columns="delivery_address_id" />
+    </table>
+    <table name="WM_DELIVERY_METHOD" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="DELIVERY_METHOD_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__WM_DELIVERY_METHOD" columns="delivery_method_id" />
+    </table>
+    <table name="WM_EO_MAP" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="TABLE_NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="ENTITY_NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+    </table>
+    <table name="WM_EVENT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CREATION_DATE" sqlType="datetime" length="23" precision="3" nullable="false" jdbcType="93" />
+      <column name="END_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="EVENT_CATEGORY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="EVENT_CODE" sqlType="varchar" length="48" precision="0" nullable="false" jdbcType="12" />
+      <column name="EVENT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="IS_ACTIVE" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="2000" precision="0" nullable="true" jdbcType="12" />
+      <column name="PARENT_EVENT_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="START_DATE" sqlType="datetime" length="23" precision="3" nullable="false" jdbcType="93" />
+      <column name="STATUS_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="USER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="RELATIVE_PATH" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__WM_EVENT" columns="event_id" />
+    </table>
+    <table name="WM_EVENT_CAT_TO_LABEL" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="EVENT_CATEGORY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="METADATA_LABEL_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_EVENT_CAT_TO_LABEL" columns="event_category_id,metadata_label_id" />
+    </table>
+    <table name="WM_EVENT_TO_SUBJECT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="SUBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="EVENT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_EVENT_TO_SUBJECT" columns="subject_id,event_id" />
+    </table>
+    <table name="WM_FILE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ARCHIVE_STATUS" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CATALOG_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="CHECKED_OUT" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="CHECKSUM" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <column name="COLORSPACE" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CURRENT_VERSION" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="FILE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="FILETYPE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="HEIGHT" sqlType="decimal" length="15" precision="2" nullable="true" jdbcType="3" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="FILE_PATH" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="RESOLUTION" sqlType="varchar" length="16" precision="0" nullable="true" jdbcType="12" />
+      <column name="REVISION_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="FILE_SIZE" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="THUMBNAIL" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="THUMBNAIL_ENLARGEMENT" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="THUMBNAIL_VERIFIED" sqlType="numeric" length="1" precision="0" nullable="true" jdbcType="2" />
+      <column name="VERSION_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="WIDTH" sqlType="decimal" length="15" precision="2" nullable="true" jdbcType="3" />
+      <primary-key name="PK__WM_FILE" columns="file_id" />
+      <exported-key name="FK1__WM_FILE_ATTRIBUTE" columns="" />
+      <exported-key name="FK1__WM_FILE_RENDITION" columns="" />
+      <index name="IDX1__WM_FILE" unique="false" columns="COMPANY_ID,CHECKSUM" />
+      <index name="IDX2__WM_FILE" unique="false" columns="ASSET_ID" />
+    </table>
+    <table name="WM_FILE_ATTRIBUTE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="DATA_TYPE" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="ATTR_DATE_VALUE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="FILE_ATTR_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="FILE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="ATTR_KEY" sqlType="varchar" length="250" precision="0" nullable="false" jdbcType="12" />
+      <column name="ATTR_STRING_VALUE" sqlType="varchar" length="250" precision="0" nullable="true" jdbcType="12" />
+      <column name="ATTR_NUM_VALUE" sqlType="numeric" length="18" precision="2" nullable="true" jdbcType="2" />
+      <column name="INDEX_NUM" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="DICT_KEY" sqlType="varchar" length="250" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__WM_FILE_ATTRIBUTE" columns="file_attr_id" />
+      <foreign-key name="FK1__WM_FILE_ATTRIBUTE" columns="FILE_ID" ref-table="WM_FILE" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="FILE_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <index name="IDX1__WM_FILE_ATTRIBUTE" unique="false" columns="FILE_ID" />
+    </table>
+    <table name="WM_FILE_PROCESS_REQUEST" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="PROCESS_REQUEST_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="FILE_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="PROCESS_PRIORITY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="PROCESS_STATUS_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="REQUEST_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="SESSION_LOG_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CLASS_NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="CLEANUP_TIME" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="CREATION_TIME" sqlType="datetime" length="23" precision="3" nullable="false" jdbcType="93" />
+      <column name="END_TIME" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="ERROR_MESSAGE" sqlType="varchar" length="2000" precision="0" nullable="true" jdbcType="12" />
+      <column name="INPUT_PATH" sqlType="varchar" length="2000" precision="0" nullable="true" jdbcType="12" />
+      <column name="OUTPUT_PATH" sqlType="varchar" length="2000" precision="0" nullable="true" jdbcType="12" />
+      <column name="START_TIME" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="APP_ID" sqlType="varchar" length="60" precision="0" nullable="true" jdbcType="12" />
+      <column name="NUM_ATTEMPTS" sqlType="numeric" length="5" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__WM_FILE_PROCESS_REQUEST" columns="process_request_id" />
+      <foreign-key name="FK3__WM_FILE_PROCESS_REQUEST" columns="SESSION_LOG_ID" ref-table="SESSION_LOG" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="SESSION_LOG_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <foreign-key name="FK1__WM_FILE_PROCESS_REQUEST" columns="PROCESS_PRIORITY_ID" ref-table="WM_LOCALIZED_OBJECT" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="LOCALIZED_OBJECT_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <foreign-key name="FK2__WM_FILE_PROCESS_REQUEST" columns="PROCESS_STATUS_ID" ref-table="WM_LOCALIZED_OBJECT" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="LOCALIZED_OBJECT_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <index name="IDX1__WM_FILE_PROCESS_REQUEST" unique="false" columns="FILE_ID,REQUEST_TYPE_ID,PROCESS_STATUS_ID" />
+    </table>
+    <table name="WM_FILE_PROCESS_REQUEST_ITEM" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="FILE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="REQUEST_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_FILE_PROCESS___4F47C5E3" columns="file_id,request_id" />
+    </table>
+    <table name="WM_FILE_PROCESS_REQUEST_TYPE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="REQUEST_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CLASS_NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="DEFAULT_NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="DEFAULT_PRIORITY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="LOCALIZATION_KEY" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="OUTPUT_FILE_LIFESPAN_DAYS" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="SORT_ORDER" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="MAX_ATTEMPTS" sqlType="numeric" length="5" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__WM_FPR_TYPE" columns="request_type_id" />
+      <foreign-key name="FK4__WM_FPR_TYPE" columns="REQUEST_TYPE_ID" ref-table="WM_FILE_PROCESS_REQUEST_TYPE" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="REQUEST_TYPE_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <foreign-key name="FK1__WM_FPR_TYPE" columns="DEFAULT_PRIORITY_ID" ref-table="WM_LOCALIZED_OBJECT" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="LOCALIZED_OBJECT_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <exported-key name="FK4__WM_FPR_TYPE" columns="" />
+    </table>
+    <table name="WM_FILE_TO_STREAM" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="FILE_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="STREAM_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_FILE_TO_STREAM" columns="file_id,stream_id" />
+      <index name="IDX1_WM_FILE_TO_STREAM" unique="false" columns="FILE_ID" />
+      <index name="IDX2_WM_FILE_TO_STREAM" unique="false" columns="STREAM_ID" />
+    </table>
+    <table name="WM_GROUP" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ACCESS_LEVEL" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="GROUP_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_GROUP" columns="group_id" />
+      <exported-key name="FK1__WM_GROUP_TO_PRIVILEGE" columns="" />
+    </table>
+    <table name="WM_GROUP_TO_COMPONENT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMPONENT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="GROUP_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_GROUP_TO_COMPONENT" columns="component_id,group_id" />
+    </table>
+    <table name="WM_GROUP_TO_PRIVILEGE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="GROUP_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="PRIVILEGE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_GROUP_TO_PRIVILEGE" columns="group_id,privilege_id" />
+      <foreign-key name="FK2__WM_GROUP_TO_PRIVILEGE" columns="PRIVILEGE_ID" ref-table="PRIVILEGE" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="PRIVILEGE_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <foreign-key name="FK1__WM_GROUP_TO_PRIVILEGE" columns="GROUP_ID" ref-table="WM_GROUP" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="GROUP_ID" update-rule="1" delete-rule="1" deferrability="2" />
+    </table>
+    <table name="WM_JOB_TO_FILE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="FILE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="JOB_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_JOB_TO_FILE" columns="file_id,job_id" />
+    </table>
+    <table name="WM_LF_PROCESS_REQUEST_ITEM" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="WM_LINKED_FILE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="REQUEST_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+    </table>
+    <table name="WM_LINKED_FILE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CHECKSUM" sqlType="varchar" length="32" precision="0" nullable="true" jdbcType="12" />
+      <column name="LINKED_FILE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="LINKED_FILE_NAME" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="MATCHING_FILE_ID" sqlType="numeric" length="16" precision="0" nullable="true" jdbcType="2" />
+      <column name="PARENT_FILE_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="IS_LINKED_BY_NAME" sqlType="numeric" length="1" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__WM_LINKED_FILE" columns="linked_file_id" />
+    </table>
+    <table name="WM_LOCALIZED_OBJECT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="LOCALIZED_OBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CLASS_NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="DEFAULT_NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="LOCALIZATION_KEY" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="SORT_ORDER" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_LOCALIZED_OBJECT" columns="localized_object_id" />
+      <exported-key name="FK1__WM_FILE_PROCESS_REQUEST" columns="" />
+      <exported-key name="FK2__WM_FILE_PROCESS_REQUEST" columns="" />
+      <exported-key name="FK1__WM_FPR_TYPE" columns="" />
+    </table>
+    <table name="WM_MEDIA_TYPE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="AG_MEDIA_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="45" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__WM_MEDIA_TYPE" columns="ag_media_type_id" />
+    </table>
+    <table name="WM_META_DATA" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="INTEGER_OBJECT" sqlType="numeric" length="10" precision="0" nullable="true" jdbcType="2" />
+      <column name="CLASS_NAME" sqlType="varchar" length="24" precision="0" nullable="false" jdbcType="12" />
+      <column name="DATE_OBJECT" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="DECIMAL_OBJECT" sqlType="numeric" length="18" precision="2" nullable="true" jdbcType="2" />
+      <column name="META_DATA_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="META_DATA_LABEL_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="OBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="STRING_OBJECT" sqlType="varchar" length="2000" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__WM_META_DATA" columns="meta_data_id" />
+      <foreign-key name="FK1__WM_META_DATA" columns="META_DATA_LABEL_ID" ref-table="WM_META_DATA_LABEL" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="META_DATA_LABEL_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <index name="IDX1__WM_META_DATA" unique="true" columns="OBJECT_ID,META_DATA_LABEL_ID,CLASS_NAME,META_DATA_ID" />
+      <index name="IDX1_WM_META_DATA" unique="true" columns="OBJECT_ID,META_DATA_LABEL_ID,CLASS_NAME,META_DATA_ID" />
+      <index name="IDX2__WM_META_DATA" unique="true" columns="META_DATA_ID,OBJECT_ID,META_DATA_LABEL_ID,CLASS_NAME" />
+      <index name="IDX2_WM_META_DATA" unique="true" columns="META_DATA_ID,OBJECT_ID,META_DATA_LABEL_ID,CLASS_NAME" />
+    </table>
+    <table name="WM_META_DATA_LABEL" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ALLOW_EMPTY" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="DATA_TYPE" sqlType="numeric" length="2" precision="0" nullable="false" jdbcType="2" />
+      <column name="IS_QUERY_ATTRIBUTE" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="IS_TO_MANY" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="META_DATA_LABEL_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="MAX_LENGTH" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="SORT_ORDER" sqlType="numeric" length="3" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__WM_META_DATA_LABEL" columns="meta_data_label_id" />
+      <exported-key name="FK1__WM_META_DATA" columns="" />
+    </table>
+    <table name="WM_META_DATA_SELECTION" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="META_DATA_LABEL_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="META_DATA_SELECTION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="VALUE_STRING" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__WM_META_DATA_SELECTION" columns="meta_data_selection_id" />
+      <index name="IDX1__WM_META_DATA_SELECTION" unique="false" columns="META_DATA_LABEL_ID" />
+    </table>
+    <table name="WM_META_DATA_TO_SELECTION" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="META_DATA_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="META_DATA_SELECTION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="OBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="CLASS_NAME" sqlType="varchar" length="24" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__WM_META_DATA_TO_SELECTION" columns="meta_data_id,meta_data_selection_id" />
+      <index name="IDX3__WM_MD_TO_SELECTION" unique="true" columns="OBJECT_ID,META_DATA_SELECTION_ID,CLASS_NAME" />
+      <index name="IDX4__WM_MD_TO_SELECTION" unique="true" columns="META_DATA_SELECTION_ID,CLASS_NAME,OBJECT_ID" />
+      <index name="IDX1__WM_META_DATA_TO_SELECTION" unique="false" columns="META_DATA_SELECTION_ID" />
+      <index name="IDX2__WM_META_DATA_TO_SELECTION" unique="false" columns="META_DATA_ID" />
+    </table>
+    <table name="WM_MPS_FILE_TYPE_REG" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="FILE_TYPE_REG_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="APP_ID" sqlType="varchar" length="60" precision="0" nullable="false" jdbcType="12" />
+      <column name="FILE_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_MPS_FILE_TYPE_REG" columns="file_type_reg_id" />
+      <foreign-key name="FK1__WM_MPS_FILE_TYPE_REG" columns="APP_ID" ref-table="APP_INSTANCES" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="APP_ID" update-rule="1" delete-rule="0" deferrability="2" />
+      <foreign-key name="FK2__WM_MPS_FILE_TYPE_REG" columns="FILE_TYPE_ID" ref-table="FILE_TYPE" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="FILE_TYPE_ID" update-rule="1" delete-rule="1" deferrability="2" />
+    </table>
+    <table name="WM_OBJECT_STREAM_OVERLAP" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="DEST_STREAM_OBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="SRC_STREAM_OBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_OBJECT_STREAM_OVERLAP" columns="dest_stream_object_id,src_stream_object_id" />
+    </table>
+    <table name="WM_ORDER_PRIORITY" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="NAME" sqlType="varchar" length="45" precision="0" nullable="false" jdbcType="12" />
+      <column name="AG_ORDER_PRIORITY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_ORDER_PRIORITY" columns="ag_order_priority_id" />
+    </table>
+    <table name="WM_PAPER_STOCK" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="NAME" sqlType="varchar" length="45" precision="0" nullable="false" jdbcType="12" />
+      <column name="AG_ORDER_PRIORITY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__PAPER_STOCK" columns="ag_order_priority_id" />
+    </table>
+    <table name="WM_PK" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="TABLE_NAME" sqlType="char" length="50" precision="0" nullable="true" jdbcType="1" />
+      <column name="PK" sqlType="bigint" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <index name="UQ1_TABLE_NAME_WM_PK" unique="true" columns="TABLE_NAME" />
+    </table>
+    <table name="WM_PROOF_TYPE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="NAME" sqlType="varchar" length="45" precision="0" nullable="false" jdbcType="12" />
+      <column name="AG_ORDER_PRIORITY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_PROOF_TYPE" columns="ag_order_priority_id" />
+    </table>
+    <table name="WM_RIGHTS_TO_ASSETS" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="RIGHTS_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_RIGHTS_TO_ASSETS" columns="rights_id,asset_id" />
+    </table>
+    <table name="WM_SHARE_POINT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CREATION_DATE" sqlType="datetime" length="23" precision="3" nullable="false" jdbcType="93" />
+      <column name="IS_READ_ONLY" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="ROOT_COLLECTION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="SHARE_POINT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_SHARE_POINT__498EEC8D" columns="share_point_id" />
+    </table>
+    <table name="WM_STREAM" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="NOTES" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="SMPTE_START_TIME" sqlType="varchar" length="15" precision="0" nullable="false" jdbcType="12" />
+      <column name="SMPTE_STOP_TIME" sqlType="varchar" length="15" precision="0" nullable="false" jdbcType="12" />
+      <column name="START_TIME" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="STOP_TIME" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="STREAM_CLASS_ID" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="STREAM_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="STREAM_INDEX" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="TEXT_CONTENT" sqlType="varchar" length="2048" precision="0" nullable="true" jdbcType="12" />
+      <column name="THUMB_NAIL_PATH" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="WEIGHT" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__WM_STREAM" columns="stream_id" />
+    </table>
+    <table name="WM_SUBJECT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="SUBJECT_LEVEL" sqlType="numeric" length="5" precision="0" nullable="false" jdbcType="2" />
+      <column name="PARENT_SUBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="SUBJECT_CODE" sqlType="varchar" length="24" precision="0" nullable="true" jdbcType="12" />
+      <column name="SUBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="SUBJECT_KEY" sqlType="varchar" length="24" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__WM_SUBJECT" columns="subject_id" />
+    </table>
+    <table name="WM_SUBJECT_ALIAS" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ALIAS_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="IS_SYNONYM" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="LANGUAGE_CODE" sqlType="numeric" length="3" precision="0" nullable="false" jdbcType="2" />
+      <column name="NOTES" sqlType="varchar" length="1000" precision="0" nullable="true" jdbcType="12" />
+      <column name="STRING" sqlType="varchar" length="100" precision="0" nullable="false" jdbcType="12" />
+      <column name="SUBJECT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_SUBJECT_ALIAS" columns="alias_id" />
+    </table>
+    <table name="WM_TASK_TO_STATUS" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="STATUS_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="TASK_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_TASK_TO_STATUS" columns="status_id,task_id" />
+      <foreign-key name="FK2__WM_TASK_TO_STATUS" columns="STATUS_ID" ref-table="STATUS" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="STATUS_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <foreign-key name="FK1__WM_TASK_TO_STATUS" columns="TASK_ID" ref-table="WM_WORKFLOW_TASK" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="TASK_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <index name="IDX1__WM_TASK_TO_STATUS" unique="false" columns="STATUS_ID" />
+      <index name="IDX2__WM_TASK_TO_STATUS" unique="false" columns="TASK_ID" />
+    </table>
+    <table name="WM_TRANSACTION" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="NAME" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="TRANSACTION_DESC" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="WMTRANSACTION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="UNIT_PRICE" sqlType="numeric" length="15" precision="2" nullable="false" jdbcType="2" />
+      <column name="WM_TRANS_KEY" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__WM_TRANSACTION" columns="wmtransaction_id" />
+    </table>
+    <table name="WM_USER" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ACCESS_LEVEL" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="DEPARTMENT_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="EMAIL" sqlType="varchar" length="64" precision="0" nullable="true" jdbcType="12" />
+      <column name="FIRST_NAME" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <column name="GROUP_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="IS_ACTIVE" sqlType="numeric" length="1" precision="0" nullable="true" jdbcType="2" />
+      <column name="JOB_FUNCTION_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="LAST_NAME" sqlType="varchar" length="32" precision="0" nullable="false" jdbcType="12" />
+      <column name="LOGIN" sqlType="varchar" length="16" precision="0" nullable="false" jdbcType="12" />
+      <column name="PASSWORD" sqlType="varchar" length="16" precision="0" nullable="false" jdbcType="12" />
+      <column name="USER_CODE" sqlType="varchar" length="16" precision="0" nullable="true" jdbcType="12" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="IS_RESTRICTED" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="PASS_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="PASSWORD_EXPIRES" sqlType="numeric" length="1" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__WM_USER" columns="wmuser_id" />
+      <exported-key name="FK1__WM_WG_TO_USER" columns="" />
+      <exported-key name="FK2__WM_SAVED_SEARCH" columns="" />
+    </table>
+    <table name="WM_USER_TO_COLLECTION" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="WM_USER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="COLLECTION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_USER_TO_COLLECTION" columns="wm_user_id,collection_id" />
+    </table>
+    <table name="WM_USER_TO_PRIVILEGE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="PRIVILEGE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_USER_TO_PRIVILEGE" columns="privilege_id,wmuser_id" />
+    </table>
+    <table name="WM_USER_TO_PROJECT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="PROJECT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_USER_TO_PROJECT" columns="project_id,wmuser_id" />
+    </table>
+    <table name="WM_USER_TO_SHAREPOINT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="SHARE_POINT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_USER_TO_SHARE__4B7734FF" columns="share_point_id,wmuser_id" />
+    </table>
+    <table name="WM_WF_OP" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="DATE_COMPLETED" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="DATE_STARTED" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="OPERATION_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="PARTICIPANT_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="STATUS_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WORKFLOW_ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_WF_OP" columns="operation_id" />
+      <foreign-key name="FK1__WM_WF_OP" columns="WORKFLOW_ASSET_ID" ref-table="WM_WORKFLOW_ASSET" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="WORKFLOW_ASSET_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <index name="IDX1__WM_WF_OP" unique="false" columns="WORKFLOW_ASSET_ID" />
+    </table>
+    <table name="WM_WG_TO_COLL" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COLLECTION_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WORK_GROUP_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_WG_TO_COLL" columns="collection_id,work_group_id" />
+      <foreign-key name="FK1__WM_WG_TO_COLL" columns="COLLECTION_ID" ref-table="WM_COLLECTION" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="COLLECTION_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <foreign-key name="FK2__WM_WG_TO_COLL" columns="WORK_GROUP_ID" ref-table="WM_WORK_GROUP" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="WORK_GROUP_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <index name="IDX1__WM_WG_TO_COLL" unique="false" columns="COLLECTION_ID" />
+      <index name="IDX2__WM_WG_TO_COLL" unique="false" columns="WORK_GROUP_ID" />
+    </table>
+    <table name="WM_WG_TO_USER" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="WORK_GROUP_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="USER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_WG_TO_USER" columns="user_id,work_group_id" />
+      <foreign-key name="FK1__WM_WG_TO_USER" columns="USER_ID" ref-table="WM_USER" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="WMUSER_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <foreign-key name="FK2__WM_WG_TO_USER" columns="WORK_GROUP_ID" ref-table="WM_WORK_GROUP" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="WORK_GROUP_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <index name="IDX1__WM_WG_TO_USER" unique="false" columns="USER_ID" />
+      <index name="IDX2__WM_WG_TO_USER" unique="false" columns="WORK_GROUP_ID" />
+    </table>
+    <table name="WM_WG_TO_WG" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="PARENT_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="CHILD_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_WG_TO_WG" columns="parent_id,child_id" />
+      <foreign-key name="FK1__WM_WG_TO_WG" columns="PARENT_ID" ref-table="WM_WORK_GROUP" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="WORK_GROUP_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <index name="IDX1__WM_WG_TO_WG" unique="false" columns="PARENT_ID" />
+    </table>
+    <table name="WM_WORKFLOW" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMMENTS" sqlType="varchar" length="1000" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="COMPLETION_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="CREATION_DATE" sqlType="datetime" length="23" precision="3" nullable="false" jdbcType="93" />
+      <column name="MOD_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="TEMPLATE_ID" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="TITLE" sqlType="varchar" length="80" precision="0" nullable="false" jdbcType="12" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WORKFLOW_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_WORKFLOW" columns="workflow_id" />
+      <exported-key name="FK2__WM_COMMENT" columns="" />
+      <exported-key name="FK1__WM_WORKFLOW_ASSET" columns="" />
+      <exported-key name="FK1__WM_WORKFLOW_TASK" columns="" />
+    </table>
+    <table name="WM_WORKFLOW_ASSET" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="DATE_ADDED" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="VERSION_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="WORKFLOW_ASSET_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WORKFLOW_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_WORKFLOW_ASSET" columns="workflow_asset_id" />
+      <foreign-key name="FK1__WM_WORKFLOW_ASSET" columns="WORKFLOW_ID" ref-table="WM_WORKFLOW" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="WORKFLOW_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <exported-key name="FK1__WM_COMMENT" columns="" />
+      <exported-key name="FK1__WM_WF_OP" columns="" />
+      <index name="IDX1__WM_WORKFLOW_ASSET" unique="false" columns="WORKFLOW_ID" />
+    </table>
+    <table name="WM_WORKFLOW_PAR" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CLASS_NAME" sqlType="varchar" length="24" precision="0" nullable="false" jdbcType="12" />
+      <column name="DATE_ASSIGNED" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="IS_ADMIN" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="MUST_PERFORM_TASK" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="PARTICIPANT_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="SIGNOFF_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="TASK_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="WORK_GROUP_ID" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__WM_WORKFLOW_PAR" columns="participant_id" />
+      <foreign-key name="FK1__WM_WORKFLOW_PAR" columns="TASK_ID" ref-table="WM_WORKFLOW_TASK" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="TASK_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <index name="IDX1__WM_WORKFLOW_PAR" unique="false" columns="TASK_ID" />
+    </table>
+    <table name="WM_WORKFLOW_RULE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ALLOWS_MULTIPLE_SELECT" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="CODE" sqlType="varchar" length="24" precision="0" nullable="false" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="DEFAULT_NAME" sqlType="varchar" length="100" precision="0" nullable="true" jdbcType="12" />
+      <column name="METHOD" sqlType="varchar" length="100" precision="0" nullable="true" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="2000" precision="0" nullable="true" jdbcType="12" />
+      <column name="RULE_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="SEQUENCE_NUMBER" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="TASK_TYPE" sqlType="varchar" length="20" precision="0" nullable="true" jdbcType="12" />
+      <column name="TYPE" sqlType="varchar" length="20" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PK__WM_WORKFLOW_RULE" columns="rule_id" />
+      <exported-key name="FK1__WM_WORKFLOW_VALUE" columns="" />
+    </table>
+    <table name="WM_WORKFLOW_TASK" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CLASS_NAME" sqlType="varchar" length="24" precision="0" nullable="false" jdbcType="12" />
+      <column name="IS_COMPLETE" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="30" precision="0" nullable="true" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="2000" precision="0" nullable="true" jdbcType="12" />
+      <column name="SEQUENCE_NUMBER" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="START_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="TASK_DESCRIPTION" sqlType="varchar" length="1000" precision="0" nullable="true" jdbcType="12" />
+      <column name="TASK_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="WORKFLOW_ID" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="TEMPLATE_ID" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <primary-key name="PK__WM_WORKFLOW_TASK" columns="task_id" />
+      <foreign-key name="FK1__WM_WORKFLOW_TASK" columns="WORKFLOW_ID" ref-table="WM_WORKFLOW" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="WORKFLOW_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <exported-key name="FK1__WM_TASK_TO_STATUS" columns="" />
+      <exported-key name="FK1__WM_WORKFLOW_PAR" columns="" />
+      <index name="IDX1__WM_WORKFLOW_TASK" unique="false" columns="WORKFLOW_ID" />
+    </table>
+    <table name="WM_WORKFLOW_TASK_RULE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="RULE_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="TASK_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="TASKRULE_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_WORKFLOW_TASK_RULE" columns="taskrule_id" />
+      <exported-key name="FK2__WM_WORKFLOW_VALUE" columns="" />
+    </table>
+    <table name="WM_WORKFLOW_TEMPLATE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMMENTS" sqlType="varchar" length="1000" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CREATION_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="IS_PUBLIC" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="MOD_DATE" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="TEMPLATE_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <column name="TITLE" sqlType="varchar" length="80" precision="0" nullable="false" jdbcType="12" />
+      <column name="WMUSER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_WORKFLOW_TEMPLATE" columns="template_id" />
+    </table>
+    <table name="WM_WORKFLOW_VALUE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="CODE" sqlType="varchar" length="24" precision="0" nullable="false" jdbcType="12" />
+      <column name="DATE_OBJECT" sqlType="datetime" length="23" precision="3" nullable="true" jdbcType="93" />
+      <column name="INTEGER_OBJECT" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="IS_DEFAULT" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="IS_SELECTED" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="RULE_ID" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="SEQUENCE_NUMBER" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="STRING_OBJECT" sqlType="varchar" length="80" precision="0" nullable="true" jdbcType="12" />
+      <column name="TASKRULE_ID" sqlType="numeric" length="18" precision="0" nullable="true" jdbcType="2" />
+      <column name="VALUE_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_WORKFLOW_VALUE" columns="value_id" />
+      <foreign-key name="FK1__WM_WORKFLOW_VALUE" columns="RULE_ID" ref-table="WM_WORKFLOW_RULE" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="RULE_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <foreign-key name="FK2__WM_WORKFLOW_VALUE" columns="TASKRULE_ID" ref-table="WM_WORKFLOW_TASK_RULE" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="TASKRULE_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <index name="IDX1__WM_WORKFLOW_VALUE" unique="false" columns="RULE_ID" />
+      <index name="IDX2__WM_WORKFLOW_VALUE" unique="false" columns="TASKRULE_ID" />
+    </table>
+    <table name="WM_WORKGROUP_TO_SHAREPOINT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="SHARE_POINT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WORK_GROUP_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_WORKGROUP_TO___4D5F7D71" columns="share_point_id,work_group_id" />
+    </table>
+    <table name="WM_WORK_GROUP" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="COMPANY_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="CREATION_DATE" sqlType="datetime" length="23" precision="3" nullable="false" jdbcType="93" />
+      <column name="IS_ACTIVE" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="IS_PUBLIC" sqlType="numeric" length="1" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="48" precision="0" nullable="false" jdbcType="12" />
+      <column name="NOTES" sqlType="varchar" length="1000" precision="0" nullable="true" jdbcType="12" />
+      <column name="USER_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="WORK_GROUP_ID" sqlType="numeric" length="18" precision="0" nullable="false" jdbcType="2" />
+      <primary-key name="PK__WM_WORK_GROUP" columns="work_group_id" />
+      <foreign-key name="FK1__WM_WORK_GROUP" columns="COMPANY_ID" ref-table="COMPANY" ref-schema="dbo" ref-catalog="WebWare_db" ref-columns="COMPANY_ID" update-rule="1" delete-rule="1" deferrability="2" />
+      <exported-key name="FK2__WM_WG_TO_COLL" columns="" />
+      <exported-key name="FK2__WM_WG_TO_USER" columns="" />
+      <exported-key name="FK1__WM_WG_TO_WG" columns="" />
+      <index name="IDX1__WM_WORK_GROUP" unique="false" columns="COMPANY_ID" />
+    </table>
+    <table name="WW_ADDRESS_TYPE" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="ADDRESS_TYPE_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="ADDRESS_VAL_CLASS_NAME" sqlType="varchar" length="48" precision="0" nullable="false" jdbcType="12" />
+      <column name="NAME" sqlType="varchar" length="48" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__WW_ADDRESS_TYPE" columns="address_type_id" />
+    </table>
+    <table name="WW_DEFAULT" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="DEFAULT_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="DOMAIN_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="DEF_KEY" sqlType="varchar" length="56" precision="0" nullable="false" jdbcType="12" />
+      <column name="PARENT_ID" sqlType="numeric" length="15" precision="0" nullable="true" jdbcType="2" />
+      <column name="DEF_VALUE" sqlType="varchar" length="2048" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__WW_DEFAULT" columns="default_id" />
+    </table>
+    <table name="WW_DOMAIN" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="DOMAIN_ID" sqlType="numeric" length="15" precision="0" nullable="false" jdbcType="2" />
+      <column name="NAME" sqlType="varchar" length="56" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PK__WW_DOMAIN" columns="domain_id" />
+    </table>
+    <table name="dtproperties" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="id" sqlType="int identity" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="objectid" sqlType="int" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="property" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="value" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="uvalue" sqlType="nvarchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="lvalue" sqlType="image" length="2147483647" precision="0" nullable="true" jdbcType="2004" />
+      <column name="version" sqlType="int" length="10" precision="0" nullable="false" jdbcType="4" def="KDAp" />
+      <primary-key name="pk_dtproperties" columns="id,property" />
+    </table>
+    <table name="oca_container" schema="dbo" catalog="WebWare_db" type="TABLE">
+      <column name="name" sqlType="varchar" length="64" precision="0" nullable="false" jdbcType="12" />
+      <column name="user_id" sqlType="int" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="asset_id" sqlType="int" length="10" precision="0" nullable="false" jdbcType="4" />
+      <index name="U01_oca_container" unique="true" columns="name,user_id,asset_id" />
+    </table>
+    <procedure name="InsertGroupComponent" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@p_COMPANY_ID" sqlType="bigint" length="8" precision="19" nullable="true" jdbcType="-5" type="" index="-1" />
+        <parameter name="@p_GROUP_NAME" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@p_COMPONENT_NAME" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="InsertGroupPrivilege" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@p_COMPANY_ID" sqlType="bigint" length="8" precision="19" nullable="true" jdbcType="-5" type="" index="-1" />
+        <parameter name="@p_GROUP_NAME" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@p_PRIVILEGE_KEY" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_addtosourcecontrol" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@vchSourceSafeINI" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchProjectName" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchComment" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_addtosourcecontrol_u" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@vchSourceSafeINI" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchProjectName" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchComment" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_adduserobject" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_adduserobject_vcs" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@vchProperty" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_checkinobject" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@chObjectType" sqlType="char" length="4" precision="4" nullable="true" jdbcType="1" type="" index="-1" />
+        <parameter name="@vchObjectName" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchComment" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@iVCSFlags" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@iActionFlag" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@txStream1" sqlType="text" length="2147483647" precision="2147483647" nullable="true" jdbcType="2005" type="" index="-1" />
+        <parameter name="@txStream2" sqlType="text" length="2147483647" precision="2147483647" nullable="true" jdbcType="2005" type="" index="-1" />
+        <parameter name="@txStream3" sqlType="text" length="2147483647" precision="2147483647" nullable="true" jdbcType="2005" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_checkinobject_u" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@chObjectType" sqlType="char" length="4" precision="4" nullable="true" jdbcType="1" type="" index="-1" />
+        <parameter name="@vchObjectName" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchComment" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@iVCSFlags" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@iActionFlag" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@txStream1" sqlType="text" length="2147483647" precision="2147483647" nullable="true" jdbcType="2005" type="" index="-1" />
+        <parameter name="@txStream2" sqlType="text" length="2147483647" precision="2147483647" nullable="true" jdbcType="2005" type="" index="-1" />
+        <parameter name="@txStream3" sqlType="text" length="2147483647" precision="2147483647" nullable="true" jdbcType="2005" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_checkoutobject" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@chObjectType" sqlType="char" length="4" precision="4" nullable="true" jdbcType="1" type="" index="-1" />
+        <parameter name="@vchObjectName" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchComment" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@iVCSFlags" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@iActionFlag" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_checkoutobject_u" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@chObjectType" sqlType="char" length="4" precision="4" nullable="true" jdbcType="1" type="" index="-1" />
+        <parameter name="@vchObjectName" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchComment" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@iVCSFlags" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@iActionFlag" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_displayoaerror" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@iObject" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@iresult" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_displayoaerror_u" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@iObject" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@iresult" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_droppropertiesbyid" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@id" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@property" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_dropuserobjectbyid" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@id" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_generateansiname" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@name" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_getobjwithprop" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@property" sqlType="varchar" length="30" precision="30" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@value" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_getobjwithprop_u" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@property" sqlType="varchar" length="30" precision="30" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@uvalue" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_getpropertiesbyid" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@id" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@property" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_getpropertiesbyid_u" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@id" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@property" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_getpropertiesbyid_vcs" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@id" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@property" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@value" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_getpropertiesbyid_vcs_u" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@id" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@property" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@value" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_isundersourcecontrol" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@iWhoToo" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_isundersourcecontrol_u" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@iWhoToo" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_removefromsourcecontrol" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_setpropertybyid" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@id" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@property" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@value" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@lvalue" sqlType="image" length="2147483647" precision="2147483647" nullable="true" jdbcType="2004" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_setpropertybyid_u" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@id" sqlType="int" length="4" precision="10" nullable="true" jdbcType="4" type="" index="-1" />
+        <parameter name="@property" sqlType="varchar" length="64" precision="64" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@uvalue" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@lvalue" sqlType="image" length="2147483647" precision="2147483647" nullable="true" jdbcType="2004" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_validateloginparams" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_validateloginparams_u" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_vcsenabled" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_verstamp006" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_whocheckedout" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@chObjectType" sqlType="char" length="4" precision="4" nullable="true" jdbcType="1" type="" index="-1" />
+        <parameter name="@vchObjectName" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="varchar" length="255" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="dt_whocheckedout_u" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@chObjectType" sqlType="char" length="4" precision="4" nullable="true" jdbcType="1" type="" index="-1" />
+        <parameter name="@vchObjectName" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchLoginName" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+        <parameter name="@vchPassword" sqlType="nvarchar" length="510" precision="255" nullable="true" jdbcType="12" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="sp_allWorkGroupUsers" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@wg_id_in" sqlType="bigint" length="8" precision="19" nullable="true" jdbcType="-5" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="sp_allWorkGroupUsersRecurse" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@wg_id_in" sqlType="bigint" length="8" precision="19" nullable="true" jdbcType="-5" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="sp_inc_sequence" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@TARGET_TABLE_NAME" sqlType="char" length="60" precision="60" nullable="true" jdbcType="1" type="" index="-1" />
+        <parameter name="@RESULT_ID" sqlType="bigint" length="8" precision="19" nullable="true" jdbcType="-5" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="sp_next_pk_for_table" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@TARGET_TABLE_NAME" sqlType="char" length="60" precision="60" nullable="true" jdbcType="1" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="sp_workGroupAncestors" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@wg_id_in" sqlType="bigint" length="8" precision="19" nullable="true" jdbcType="-5" type="" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="sp_workGroupAncestorsRecurse" schema="dbo" catalog="WebWare_db" type="2">
+      <prototype return="true">
+        <parameter name="@RETURN_VALUE" sqlType="int" length="4" precision="10" nullable="false" jdbcType="4" type="" index="-1" />
+        <parameter name="@wg_id_in" sqlType="bigint" length="8" precision="19" nullable="true" jdbcType="-5" type="" index="-1" />
+      </prototype>
+    </procedure>
+  </data-source>
+</component>

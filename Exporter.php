@@ -15,6 +15,7 @@ class Exporter
         }
 
         $this->extractFilesForCollection($DAO, $collection, $collectionDir);
+        $DAO->updateCollectionExportDate($collection);
 
         if (TESTING) {
             if ($this->collectionCount > 20) {
@@ -42,6 +43,7 @@ class Exporter
             copy($sourcePath, $destPath);
             echo "\ndone!\n";
             $this->extractMetadata($DAO, $file, $destDir);
+            $DAO->updateAssetExportDate($file);
         }
     }
 

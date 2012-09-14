@@ -39,12 +39,14 @@ class DAO
 
     function getTopLevelCollections()
     {
-        return $this->query("select * from wm_collection where company_id = " . JHU_COMPANY_ID . " and parent_collection_id is null");
+        return $this->query("select * from wm_collection where company_id = " . JHU_COMPANY_ID .
+            " and parent_collection_id is null and export_date is null");
     }
 
     function getChildCollections($collection)
     {
-        return $this->query("select * from wm_collection where company_id = " . JHU_COMPANY_ID . " and parent_collection_id = {$collection['COLLECTION_ID']}");
+        return $this->query("select * from wm_collection where company_id = " . JHU_COMPANY_ID .
+            " and parent_collection_id = {$collection['COLLECTION_ID']} and export_date is null");
     }
 
     function getFilesForCollection($collection) {
@@ -53,7 +55,8 @@ class DAO
             "join asset a on wca.asset_id = a.asset_id " .
             "join wm_file f on a.current_file_id = f.file_id " .
             "join asset_category ac on a.asset_category_id = ac.asset_category_id " .
-            "where wca.collection_id = " . $collection['COLLECTION_ID']);
+            "where wca.collection_id = " . $collection['COLLECTION_ID']) .
+            "and a.export_date is null";
     }
 
     function getUser($id) {
@@ -78,5 +81,13 @@ class DAO
         }
         $result[] = array('name' => 'Date', 'value' => $file['CATALOG_DATE'], 'type' => 'date');
         return $result;
+    }
+
+    function updateAssetExportDate($file) {
+        $this->query("update asset set export_date = CURRENT_TIMESTAMP where current_file_id = {$file['FILE_ID']}");
+    }
+
+    function updateCollectionExportDate($collection) {
+        $this->query("update wm_collection set export_date = CURRENT_TIMESTAMP where collection_id = {$collection['COLLECTION_ID']}");
     }
 }
