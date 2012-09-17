@@ -15,7 +15,6 @@ class Exporter
         }
 
         $this->extractFilesForCollection($DAO, $collection, $collectionDir);
-        $DAO->updateCollectionExportDate($collection);
 
         if (TESTING) {
             if ($this->collectionCount > 20) {
@@ -28,6 +27,9 @@ class Exporter
         foreach($DAO->getChildCollections($collection) as $childCollection) {
             $this->processCollection($DAO, $childCollection, $collectionDir);
         }
+
+        $DAO->updateCollectionExportDate($collection);
+
     }
 
     public function extractFilesForCollection($DAO, $collection, $collectionDir) {
