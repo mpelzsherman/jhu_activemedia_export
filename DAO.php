@@ -40,7 +40,7 @@ class DAO
     function getTopLevelCollections()
     {
         return $this->query("select * from wm_collection where company_id = " . JHU_COMPANY_ID .
-            " and parent_collection_id is null and export_date is null");
+            " and parent_collection_id is null and export_date is null and is_active = 1");
     }
 
     function getChildCollections($collection)
