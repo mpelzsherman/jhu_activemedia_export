@@ -55,8 +55,8 @@ class DAO
             "join asset a on wca.asset_id = a.asset_id " .
             "join wm_file f on a.current_file_id = f.file_id " .
             "join asset_category ac on a.asset_category_id = ac.asset_category_id " .
-            "where wca.collection_id = " . $collection['COLLECTION_ID']) .
-            "and a.export_date is null";
+            "where wca.collection_id = " . $collection['COLLECTION_ID'] .
+            " and a.export_date is null");
     }
 
     function getUser($id) {

@@ -32,7 +32,8 @@ class Exporter
 
     public function extractFilesForCollection($DAO, $collection, $collectionDir) {
         $this->writeCollectionMetadata($DAO, $collection, $collectionDir);
-        foreach ($DAO->getFilesForCollection($collection) as $file) {
+	  $files = $DAO->getFilesForCollection($collection);
+        foreach ($files as $file) {
             $sourcePath = $this->getFullPathForFile($file);
             $destDir = $collectionDir . DIRECTORY_SEPARATOR . $file['CATALOG_DATE'];
             if (!is_dir($destDir)) {
